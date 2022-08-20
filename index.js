@@ -6,16 +6,12 @@ const client = new Client({
 		GatewayIntentBits.GuildPresences, 
 		GatewayIntentBits.GuildMessageReactions, 
 		GatewayIntentBits.DirectMessages,
-		GatewayIntentBits.MessageContent,
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent, //IMPORTANT: make sure you enable "Message Content Intent" in the dev portal!
-    IntentsBitField.Flags.GuildMembers,
-    IntentsBitField.Flags.DirectMessages,
+		GatewayIntentBits.MessageContent
 	], 
 	partials: [Partials.Channel, Partials.Message, Partials.User, Partials.GuildMember, Partials.Reaction] 
 });
-
+const discordModals = require("discord-modals");
+discordModals(client);
 const config = require('./config.json');
 require('dotenv').config() // remove this line if you are using replit
 
