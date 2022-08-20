@@ -39,7 +39,7 @@ module.exports = (client) => {
 		}
 		
 	});
-	console.log(chalk.red(table.toString()));
+	console.log(chalk.gray(table.toString()));
 
 	(async () => {
 			try {
@@ -49,7 +49,8 @@ module.exports = (client) => {
 					Routes.applicationCommands(CLIENT_ID), 
 					{ body: slashCommands }
 				);
-				console.log(chalk.cyan('Slash Commands • Registered'))
+				/*console.log(chalk.cyan('Slash Commands • Registered'))*/
+        console.log(chalk.white('[Info]') + chalk.gray(' Registered Slash Commands'));
 			} catch (error) {
 				console.log(error);
 			}

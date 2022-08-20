@@ -23,5 +23,5 @@ module.exports = (client) => {
 						}
 				});
 	});
-	console.log(chalk.blue(table.toString()))
+	console.log(chalk.gray(table.toString()))
 };

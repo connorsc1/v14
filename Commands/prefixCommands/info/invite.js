@@ -8,14 +8,6 @@ module.exports = {
 	botPerms: ['Administrator'],
 	run: async (client, message, args) => {
 		const inviteUrl = `https://discord.com/api/oauth2/authorize?client_id=${process.env.CLIENT_ID}&permissions=8&scope=bot%20applications.commands`;
-		const embed = new EmbedBuilder()
-		.setTitle('Invite me')
-		.setDescription(`Invite the bot to your server. [Click here](${inviteUrl})`)
-		.setColor('#03fcdb')
-		.setTimestamp()
-		.setThumbnail(client.user.displayAvatarURL())
-		.setFooter({ text: client.user.tag })
-
 		const actionRow = new ActionRowBuilder()
 		.addComponents([
 			new ButtonBuilder()
@@ -23,6 +15,6 @@ module.exports = {
 			.setURL(inviteUrl)
 			.setStyle(5)
 		])
-		message.reply({ embeds: [embed], components: [actionRow] })
+		message.reply({ content: '', components: [actionRow] })
 	}
 };
