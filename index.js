@@ -1,4 +1,5 @@
 const { Client, GatewayIntentBits, IntentsBitField, Partials, Collection } = require('discord.js');
+const Jsoning = require("jsoning");
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds, 
@@ -28,5 +29,9 @@ module.exports = client;
 ['events', 'prefixCommands', 'slashCommand'].forEach((handler) => {
   require(`./Handlers/${handler}`)(client)
 });
+
+this.database = {
+  guild: new Jsoning("guild.json"),
+};
 
 client.login(process.env.TOKEN)

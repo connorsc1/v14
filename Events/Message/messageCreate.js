@@ -5,6 +5,16 @@ const prefix = client.prefix;
 const cooldown = new Collection()
 
 client.on('messageCreate', async message => {
+  
+  let GuildDB = await client.GetGuild(message.guild.id);
+
+  if (!GuildDB) {
+    await client.database.guild.set(message.guild.id, {
+      verifyrole: null,
+    });
+    GuildDB = await client.GetGuild(message.guild.id);
+  }
+
 	if(message.author.bot) return;
 	if(message.channel.type !== 0) return;
 	if(!message.content.startsWith(prefix)) return; 
